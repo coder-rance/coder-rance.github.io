@@ -1,0 +1,26 @@
+1.RN的路由系统 React Navigation 6.x 
+yarn add @react-navigation/native
+yarn add react-native-screens react-native-safe-area-context
+yarn add @react-navigation/native-stack
+
+将代码添加到 MainActivity 类的主体中：
+import android.os.Bundle;
+public class MainActivity extends ReactActivity {
+  // ...
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
+  }
+  // ...
+}
+
+
+2.状态管理 react-redux
+
+3.图标库 react-native-vector-icons
+yarn add react-native-vector-icons
+文档 https://www.npmjs.com/package/react-native-vector-icons#tabbar
+
+4.获取设备信息 react-native-device-info 
+yarn add react-native-device-info
+文档 https://www.npmjs.com/package/react-native-device-info#installation
