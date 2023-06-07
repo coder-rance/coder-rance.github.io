@@ -14,6 +14,7 @@ import {
   Icon,
   Pressable,
 } from 'native-base';
+import {EasyInput} from '@app/components';
 
 export function LoginPage() {
   const navigation = useNavigation();
@@ -24,8 +25,8 @@ export function LoginPage() {
 
   const onLogin = () => {
     toast.show({
-      description:'登录成功',
-      duration: 2000
+      description: '登录成功',
+      duration: 2000,
     });
 
     navigation.navigate('Home');
@@ -33,53 +34,26 @@ export function LoginPage() {
 
   return (
     <Box>
-      <Flex direction="column" align="center" justifyContent="center" m={5}>
-        <Input
+      <Flex direction="column" m={5}>
+        <EasyInput
           value={account}
-          InputLeftElement={
-            <Icon
-              as={<Ionicons name="person" />}
-              size={5}
-              ml="2"
-              color="muted.400"
-            />
-          }
-          mt={2.5}
-          mb={2.5}
-          size="md"
+          setValue={setAccount}
           placeholder="请输入账号"
-        />
-        <Input
+          icon="person"
+          mt={2.5}></EasyInput>
+
+        <EasyInput
+          type="password"
           value={password}
-          InputLeftElement={
-            <Icon
-              as={<Ionicons name="key" />}
-              size={5}
-              ml="2"
-              color="muted.400"
-            />
-          }
-          type={show ? 'text' : 'password'}
-          InputRightElement={
-            <Pressable onPress={() => setShow(!show)}>
-              <Icon
-                as={<Ionicons name={show ? 'eye' : 'eye-off'} />}
-                size={5}
-                mr="2"
-                color="muted.400"
-              />
-            </Pressable>
-          }
-          size="md"
+          setValue={setPassword}
           placeholder="请输入密码"
-        />
+          icon="key"
+          mt={2.5}></EasyInput>
+
+        <Button  mt={8} onPress={onLogin}>
+          登录
+        </Button>
       </Flex>
-      <Button
-        variant="outline"
-        m={5}
-        onPress={onLogin}>
-        登录
-      </Button>
     </Box>
   );
 }

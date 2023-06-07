@@ -42,6 +42,7 @@ yarn add -D babel-plugin-root-import
   }
 }
 
+
 // 修改根目录下babel.config.js
 module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
