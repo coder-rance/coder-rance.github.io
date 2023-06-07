@@ -7,15 +7,17 @@ import {
   StyleSheet,
 } from 'react-native';
 
-
 const banner = require("../assets/img/banner.png");
 
-export default function LaunchPage({ launchEnd }) {
-  let timer = setTimeout(() => {
-    console.log('动画结束', launchEnd);
-    launchEnd(true);
-    clearTimeout(timer);
-  }, 1000);
+export function LaunchPage({ launchEnd }) {
+  useEffect(()=>{
+    let timer = setTimeout(() => {
+      console.log('动画结束', launchEnd);
+      launchEnd(true);
+      clearTimeout(timer);
+    }, 1000);
+  }, []);
+
 
   return (
     <View style={styles.container}>

@@ -15,7 +15,7 @@ public class MainActivity extends ReactActivity {
 }
 
 
-2.状态管理 react-redux
+2.状态管理 redux react-redux @redux/toolkit
 
 3.图标库 react-native-vector-icons
 yarn add react-native-vector-icons
@@ -24,3 +24,38 @@ yarn add react-native-vector-icons
 4.获取设备信息 react-native-device-info 
 yarn add react-native-device-info
 文档 https://www.npmjs.com/package/react-native-device-info#installation
+
+5.设置路径别名
+yarn add -D babel-plugin-root-import
+// 根目录下新增jsconfig.json 
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    /* Completeness */
+    "skipLibCheck": true,   /* Skip type checking all .d.ts files. */
+    /* 配置基础地址 */
+    "baseUrl": ".",
+    /* 配置路径别名 */ 
+    "paths": {
+      "@app/*": ["app/*"],
+    } 
+  }
+}
+
+// 修改根目录下babel.config.js
+module.exports = {
+  presets: ['module:metro-react-native-babel-preset'],
+  plugins: [
+    [
+      'babel-plugin-root-import',
+      {
+        paths: [
+          {
+            rootPathSuffix: './app',
+            rootPathPrefix: '@app/', // 使用 ~/  代替 ./src (~指向的就是src目录)
+          },
+        ],
+      },
+    ],
+  ],
+};

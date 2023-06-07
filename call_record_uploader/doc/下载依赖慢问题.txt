@@ -1,0 +1,4 @@
+去这里搜索对应的下载慢的依赖 https://repo1.maven.org/maven2/org/jetbrains/kotlin/
+
+放到对应的文件夹下面
+C:\Users\用户名\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-compiler-embeddable\1.6.20
