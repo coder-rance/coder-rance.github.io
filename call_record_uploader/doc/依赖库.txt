@@ -63,6 +63,6 @@ module.exports = {
   ],
 };
 
-6.获取通话记录 react-native-call-log
-yarn add react-native-call-log
-文档 https://www.npmjs.com/package/react-native-call-log
+6.获取通话记录 react-native-call-record
+yarn add react-native-call-record
+文档 https://www.npmjs.com/package/react-native-call-record

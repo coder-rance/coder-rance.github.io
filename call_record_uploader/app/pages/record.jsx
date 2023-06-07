@@ -3,9 +3,7 @@ import {StatusBar, PermissionsAndroid} from 'react-native';
 import {Flex, Text, Heading, Container, ScrollView} from 'native-base';
 import {useIsFocused} from '@react-navigation/native';
 import dayjs from 'dayjs';
-
 import CallRecord from 'react-native-call-record';
-
 
 const FocusAwareStatusBar = props => {
   const isFocused = useIsFocused();
@@ -43,28 +41,6 @@ export function RecordPage() {
     }
   }, []);
 
-  // const getCallLogs = async () => {
-  //   try {
-  //     const granted = await PermissionsAndroid.request(
-  //       PermissionsAndroid.PERMISSIONS.READ_CALL_LOG,
-  //       {
-  //         title: 'Call Log Example',
-  //         message: 'Access your call logs',
-  //         buttonNeutral: 'Ask Me Later',
-  //         buttonNegative: 'Cancel',
-  //         buttonPositive: 'OK',
-  //       },
-  //     );
-  //     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-  //       console.log(CallLogs);
-  //       CallLogs.load(5).then(c => console.log(c));
-  //     } else {
-  //       console.log('Call Log permission denied');
-  //     }
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
   return (
     <>
       <FocusAwareStatusBar barStyle="dark-content" backgroundColor="#fff" />
