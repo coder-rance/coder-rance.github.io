@@ -2,14 +2,7 @@ import React, {useState} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {
-  Stack,
-  Box,
-  Button,
-  Flex,
-  Text,
   Input,
-  useToast,
-  Spacer,
   Icon,
   Pressable,
 } from 'native-base';

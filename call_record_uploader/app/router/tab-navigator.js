@@ -1,16 +1,12 @@
-import React ,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { getVersion } from 'react-native-device-info';
-import { Native_CheckUpdate } from '@app/mq';
-import { useSelector } from 'react-redux';
-import { Task } from '@app/pages/Task';
-import { Record } from '@app/pages/Record';
-import { History } from '@app/pages/History';
-import { Me } from '@app/pages/Me';
+import { RecordPage } from '@app/pages/record';
+import { HistoryPage } from '@app/pages/history';
+import { MePage } from '@app/pages/me';
+import { useExitApp } from '@app/hooks/useExitApp';
 
 const icons = {
-  'Task': { active: 'list', inactive: 'list-outline' },
   'History': { active: 'ios-book', inactive: 'ios-book-outline' },
   'Record': { active: 'ios-call', inactive: 'ios-call-outline' },
   'Me': { active: 'person', inactive: 'person-outline' },
@@ -18,8 +14,23 @@ const icons = {
 
 
 const screenOptions = ({ route }) => ({
+  headerShown:false,
   tabBarColor: false,
   tabBarLabel: '',
+  tabBarActiveTintColor: "#409EFF",
+  tabBarInactiveTintColor: "#000",
+  tabBarLabelStyle: {
+    fontSize: 12,
+    marginBottom: 5
+  },
+  tabBarItemStyle: {},
+  tabBarLabelPosition: "below-icon",
+  tabBarStyle: [
+    {
+      "display": "flex"
+    },
+    null
+  ],
   tabBarIcon: ({ focused, color }) => {
     const name = focused
       ? icons[route.name]['active']
@@ -31,54 +42,30 @@ const screenOptions = ({ route }) => ({
 const Tab = createBottomTabNavigator();
 
 export function TabNavigator() {
-  const serverURL = useSelector(state => state.serverURL);
-  useEffect(() => {
-    console.log('版本',getVersion());
-    Native_CheckUpdate(serverURL);
-  }, []);
-
+  // useExitApp();
   return (
     <Tab.Navigator
       initialRouteName="Task"
+      // backBehavior='none'
       screenOptions={screenOptions}
-      tabBarOptions={{
-        activeTintColor: "#409EFF",
-        inactiveTintColor: "#000",
-        tabStyle: {
-          // height:60
-        },
-        labelStyle: {
-          fontSize: 12,
-          marginBottom: 5,
-        },
-        labelPosition: 'below-icon'
-      }}
     >
       <Tab.Screen
-        name="Task"
-        component={Task}
-        options={{
-          tabBarLabel: '任务',
-
-        }}
-      />
-      <Tab.Screen
         name="History"
-        component={History}
+        component={HistoryPage}
         options={{
           tabBarLabel: '历史',
         }}
       />
       <Tab.Screen
         name="Record"
-        component={Record}
+        component={RecordPage}
         options={{
           tabBarLabel: '通话',
         }}
       />
       <Tab.Screen
         name="Me"
-        component={Me}
+        component={MePage}
         options={{
           tabBarLabel: '我',
         }}

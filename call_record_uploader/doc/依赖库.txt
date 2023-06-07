@@ -2,6 +2,8 @@
 yarn add @react-navigation/native
 yarn add react-native-screens react-native-safe-area-context
 yarn add @react-navigation/native-stack
+yarn add react-native-gesture-handler
+yarn add @react-native-masked-view/masked-view
 
 将代码添加到 MainActivity 类的主体中：
 import android.os.Bundle;
@@ -60,3 +62,7 @@ module.exports = {
     ],
   ],
 };
+
+6.获取通话记录 react-native-call-log
+yarn add react-native-call-log
+文档 https://www.npmjs.com/package/react-native-call-log

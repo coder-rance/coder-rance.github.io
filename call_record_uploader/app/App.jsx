@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import store from '@app/store';
 import {Provider} from 'react-redux';
 import {Navigation} from '@app/router';
@@ -7,6 +7,7 @@ import {NativeBaseProvider} from 'native-base';
 
 function App() {
   const [isLaunched, setLaunch] = useState(false);
+
   // 启动结束调用
   const launchEnd = flag => {
     setLaunch(flag);
